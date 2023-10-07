@@ -1,0 +1,9 @@
+name: generate data before test
+
+runs:
+  using: composite
+  steps:
+  - name: create my data
+    shell: bash
+    run: |
+      echo '42' > data.txt
