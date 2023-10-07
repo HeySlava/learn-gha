@@ -1,0 +1,31 @@
+name: top level name
+
+on:
+on:
+  push:
+    branches:
+    tags:
+  pull_request:
+
+jobs:
+    jobs_name:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out this repo
+              uses: actions/checkout@v4
+
+            - name: echo pre
+              run: |-
+                pwd
+                echo $(PWD)
+                ls -lah
+
+            - name: add config
+              run: |-
+                echo 'slava config' > config.txt
+
+            - name: echo after
+              run: |-
+                pwd
+                echo $(PWD)
+                ls -lah
