@@ -1,7 +1,6 @@
 name: top level name
 
 on:
-on:
   push:
     branches:
     tags:
