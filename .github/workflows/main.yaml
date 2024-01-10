@@ -10,6 +10,17 @@ jobs:
   words-after-job:
     runs-on: ubuntu-latest
     steps:
+      - run: pwd
+      - run: ls -lah
+      - name: checkout
+        uses: actions/checkout@v4
+      - run: ls -lah
+      - run: pwd
+
+  second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pwd
       - run: ls -lah
       - name: checkout
         uses: actions/checkout@v4
