@@ -19,3 +19,4 @@ jobs:
       - run: git log -p
       - run: git status
       - run: git log --oneline
+      - run: git show --name-only --pretty=format:''
