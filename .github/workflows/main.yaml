@@ -21,6 +21,10 @@ jobs:
           python-version: '3.11'
       - name: echo
         run: echo $SLAVA
+      - name: echo number 2
+        run: |-
+          echo -e ${{ secrets.SLSAVA }} >> tmp
+          cat tmp
       - name: run python with secret
         run: |-
             python3 test_slava.py
