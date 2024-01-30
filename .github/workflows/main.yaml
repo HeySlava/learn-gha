@@ -10,13 +10,14 @@ jobs:
   words-after-job:
     runs-on: ubuntu-latest
     steps:
-      - run: pwd
-      - run: ls -lah
-      - name: checkout
+      - name: Check out this repo
         uses: actions/checkout@v4
-      - run: ls -lah
-      - run: pwd
-      - run: git log -p
-      - run: git status
-      - run: git log --oneline
-      - run: git show --name-only --pretty=format:''
+      - uses: actions/setup-python@v5
+
+      - name: run python with secret
+        run: |-
+            SLAVA=${{secrets.SLAVA}} test_slava.py
+
+      - name: run python with variables
+        run: |-
+            SLAVA=${{env.SLAVA}} test_slava.py

@@ -1,28 +1,28 @@
-name: CI
+# name: CI
 
-on:
-  push:
-    branches: [ "master", "test-me-*" ]
-  workflow_dispatch:
+# on:
+#   push:
+#     branches: [ "master", "test-me-*" ]
+#   workflow_dispatch:
   
-jobs:
-  run-playbooks:
-    runs-on: ubuntu-latest
-    steps: 
-      - uses: actions/checkout@v3
-      - name: Setup SSH 
-        shell: bash
-        run: |
-         eval `ssh-agent -s`
-         mkdir -p /home/runner/.ssh/
-         touch /home/runner/.ssh/id_rsa
-         echo -e "${{secrets.SSH_KEY}}" > /home/runner/.ssh/id_rsa
-         chmod 700 /home/runner/.ssh/id_rsa
-         ssh-keyscan -t rsa,dsa,ecdsa,ed25519 ${{secrets.SSH_HOST}} >> /home/runner/.ssh/known_hosts
-      - name: Run ssh commands
-        shell: bash 
-        run: |
-          service ssh status
-          ssh ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}} touch runner-file
-          ssh ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}} ls
+# jobs:
+#   run-playbooks:
+#     runs-on: ubuntu-latest
+#     steps: 
+#       - uses: actions/checkout@v3
+#       - name: Setup SSH 
+#         shell: bash
+#         run: |
+#          eval `ssh-agent -s`
+#          mkdir -p /home/runner/.ssh/
+#          touch /home/runner/.ssh/id_rsa
+#          echo -e "${{secrets.SSH_KEY}}" > /home/runner/.ssh/id_rsa
+#          chmod 700 /home/runner/.ssh/id_rsa
+#          ssh-keyscan -t rsa,dsa,ecdsa,ed25519 ${{secrets.SSH_HOST}} >> /home/runner/.ssh/known_hosts
+#       - name: Run ssh commands
+#         shell: bash 
+#         run: |
+#           service ssh status
+#           ssh ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}} touch runner-file
+#           ssh ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}} ls
 
