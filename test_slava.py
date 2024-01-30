@@ -1,5 +1,7 @@
 import os
 
 
-print(os.environ['SLAVA'])
-print(len(os.environ['SLAVA']))
+var = os.environ['SLAVA']
+
+print(var, 'os env')
+print(len(var), 'len of this env')
