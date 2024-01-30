@@ -19,12 +19,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: echo
-        run: echo $SLAVA
-      - name: echo number 2
-        run: |-
-          echo -e ${{ secrets.SLSAVA }} >> tmp
-          cat tmp
       - name: run python with secret
+        env:
+          SLAVA: ${{ secrets.SLAVA }}
         run: |-
             python3 test_slava.py
