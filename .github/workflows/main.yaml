@@ -15,9 +15,7 @@ jobs:
       - uses: actions/setup-python@v5
 
       - name: run python with secret
-        run: |-
-            SLAVA=${{secrets.SLAVA}} python3 test_slava.py
-
-      - name: run python with variables
+        env: 
+            SLAVA: ${{ secrets.SLAVA }}
         run: |-
             SLAVA=${{env.SLAVA}} python3 test_slava.py
