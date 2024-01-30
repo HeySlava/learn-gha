@@ -11,6 +11,7 @@ jobs:
           date > generated.txt
           git config user.name github-actions
           git config user.email github-actions@github.com
+          timestamp=$(date --rfc-3339=seconds --utc)
           git add .
-          git commit -m "generated"
+          git commit -m "generated: ${timestamp}"
           git push
