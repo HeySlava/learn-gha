@@ -14,8 +14,8 @@ jobs:
         uses: actions/checkout@v4
       - uses: actions/setup-python@v5
 
+      - name: echo
+        run: echo $SLAVA
       - name: run python with secret
-        env: 
-            SLAVA: ${{ secrets.SLAVA }}
         run: |-
-            SLAVA=$(echo ${{env.SLAVA}} | base64 -d) python3 test_slava.py
+            python3 test_slava.py
