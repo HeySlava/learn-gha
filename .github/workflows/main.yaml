@@ -16,8 +16,8 @@ jobs:
 
       - name: run python with secret
         run: |-
-            SLAVA=${{secrets.SLAVA}} test_slava.py
+            SLAVA=${{secrets.SLAVA}} python3 test_slava.py
 
       - name: run python with variables
         run: |-
-            SLAVA=${{env.SLAVA}} test_slava.py
+            SLAVA=${{env.SLAVA}} python3 test_slava.py
