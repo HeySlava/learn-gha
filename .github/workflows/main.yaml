@@ -18,4 +18,4 @@ jobs:
         env: 
             SLAVA: ${{ secrets.SLAVA }}
         run: |-
-            SLAVA=${{env.SLAVA}} python3 test_slava.py
+            SLAVA=$(echo ${{env.SLAVA}} | base64 -d) python3 test_slava.py
